@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon CV - Développeur Full-Stack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='photo.jpg') }}" alt="Photo de profil">
+            <h1>Ton Prénom Ton Nom</h1>
+            <h2>Développeur Full-Stack</h2>
+            <p>Passionné par les technologies web, mobile et les architectures modernes...</p>
+        </header>
+
+        <section>
+            <h3>🧑‍💼 Expériences Professionnelles</h3>
+            <ul>
+                <li><strong>2024 – Présent :</strong> Développeur Flutter – Entreprise X</li>
+                <li><strong>2022 – 2023 :</strong> Développeur Web – Entreprise Y</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>🎓 Formations</h3>
+            <ul>
+                <li><strong>2023 – 2025 :</strong> MSc Expert en informatique, EPSI Paris</li>
+                <li><strong>2020 – 2023 :</strong> Licence informatique, Université d’Alger</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>🛠️ Compétences</h3>
+            <ul class="skills">
+                <li>Flutter</li>
+                <li>Dart</li>
+                <li>HTML / CSS / JS</li>
+                <li>Python</li>
+                <li>Travail en équipe</li>
+                <li>Résolution de problèmes</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
