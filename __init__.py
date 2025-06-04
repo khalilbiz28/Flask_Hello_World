@@ -1,7 +1,9 @@
+#Testin Testing TP2
 from flask import Flask
 from flask import render_template
 from flask import json
-import sqlite3                                                                     
+import sqlite3
+                                                                                                                                       
 app = Flask(__name__)                                                                                                                  
                                                                                                                                        
 @app.route('/')
@@ -11,50 +13,58 @@ def hello_world():
 @app.route('/exercices/')
 def exercices():
     return render_template('exercices.html')
+
 @app.route("/contact/")
 def MaPremiereAPI():
     return render_template("contact.html")
 
 @app.route('/calcul_carre/<int:val_user>')
 def carre(val_user):
-    return f"<h2>Le carré de votre valeur est : {val_user * val_user}</h2>"
+    return "<h2>Le carré de votre valeur est : </h2>" + str(val_user * val_user)
 
-@app.route('/somme/<int:val1>/<int:val2>')
-def somme(val1, val2):
-    resultat = val1 + val2
+@app.route('/somme/<int:valeur1>/<int:valeur2>')
+def somme_et_parite(valeur1, valeur2):
+    resultat = valeur1 + valeur2
     if resultat % 2 == 0:
         parite = "pair"
     else:
         parite = "impair"
-    return f"<h2>La somme de {val1} et {val2} est : {resultat}</h2><p>Ce nombre est {parite}.</p>"
+    
+    return f"<h2>La somme des deux valeurs est : {resultat}</h2>" \
+           f"<h3>Cette somme est un nombre {parite}.</h3>"
 
-@app.route('/somme_multiple/', defaults={'nombres': ''})
-@app.route('/somme_multiple/<path:nombres>')
-def somme_multiple(nombres):
+@app.route('/somme_tout/<path:valeurs>')
+def somme_toutes_valeurs(valeurs):
     try:
-        liste = [int(n) for n in nombres.split('/') if n.strip() != '']
-        resultat = sum(liste)
-        return f"<h2>Les valeurs : {liste}</h2><p>La somme de ces valeurs est : {resultat}</p>"
+        # Récupération des valeurs sous forme de liste de chaînes
+        liste_str = valeurs.split('/')
+        # Conversion en entiers
+        liste_int = [int(val) for val in liste_str]
+        # Calcul de la somme
+        total = sum(liste_int)
+        return f"<h2>La somme de toutes les valeurs est : {total}</h2>"
     except ValueError:
-        return "<h2>Erreur : Veuillez entrer uniquement des nombres entiers dans l’URL.</h2>"
+        return "<h3>Erreur : Veuillez entrer uniquement des nombres entiers dans l’URL.</h3>"
 
-@app.route('/valeur_maximale/', defaults={'nombres': ''})
-@app.route('/valeur_maximale/<path:nombres>')
-def valeur_maximale(nombres):
+@app.route('/max_val/<path:valeurs>')
+def valeur_maximale(valeurs):
     try:
-        # Convertir chaque nombre de l'URL en une liste d'entiers
-        liste = [int(n) for n in nombres.split('/') if n.strip() != '']
-        
-        # Trouver la valeur maximale
-        max_valeur = max(liste)
-        
-        return f"<h2>Les valeurs sont : {liste}</h2><p>La valeur maximale parmi ces valeurs est : {max_valeur}</p>"
+        # Récupération des valeurs sous forme de liste de chaînes
+        liste_str = valeurs.split('/')
+        # Conversion en entiers
+        liste_int = [int(val) for val in liste_str]
+        # Recherche de la valeur maximale avec une boucle
+        max_val = liste_int[0]
+        for val in liste_int:
+            if val > max_val:
+                max_val = val
+        return f"<h2>La valeur maximale saisie est : {max_val}</h2>"
     except ValueError:
-        return "<h2>Erreur : Veuillez entrer uniquement des nombres entiers dans l’URL.</h2>"
+        return "<h3>Erreur : Veuillez entrer uniquement des nombres entiers dans l’URL.</h3>"
 
 @app.route('/cv')
-def cv():
-    return render_template("cv.html")
-
+def afficher_cv():
+    return render_template('cv.html')
+                                                                                                               
 if __name__ == "__main__":
-  app.run(debug=True)   #commit222
+  app.run(debug=True, host='0.0.0.0', port=5000)
