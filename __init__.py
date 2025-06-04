@@ -38,6 +38,19 @@ def somme_multiple(nombres):
     except ValueError:
         return "<h2>Erreur : Veuillez entrer uniquement des nombres entiers dans l’URL.</h2>"
 
+@app.route('/valeur_maximale/', defaults={'nombres': ''})
+@app.route('/valeur_maximale/<path:nombres>')
+def valeur_maximale(nombres):
+    try:
+        # Convertir chaque nombre de l'URL en une liste d'entiers
+        liste = [int(n) for n in nombres.split('/') if n.strip() != '']
+        
+        # Trouver la valeur maximale
+        max_valeur = max(liste)
+        
+        return f"<h2>Les valeurs sont : {liste}</h2><p>La valeur maximale parmi ces valeurs est : {max_valeur}</p>"
+    except ValueError:
+        return "<h2>Erreur : Veuillez entrer uniquement des nombres entiers dans l’URL.</h2>"
 
 if __name__ == "__main__":
   app.run(debug=True)   #commit222
