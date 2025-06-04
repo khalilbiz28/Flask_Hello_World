@@ -5,53 +5,88 @@
     <title>Contact - Massinissa BEY</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
             margin: 0;
-            padding: 40px;
+            padding: 0;
         }
 
         .container {
             max-width: 600px;
-            margin: auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            margin: 60px auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
 
         h1 {
+            text-align: center;
             color: #333;
-            margin-bottom: 20px;
         }
 
-        p {
-            color: #555;
+        form {
+            display: flex;
+            flex-direction: column;
         }
 
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            color: white;
+        label {
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px;
             background-color: #007BFF;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
         }
 
-        a:hover {
+        button:hover {
             background-color: #0056b3;
+        }
+
+        .signature {
+            margin-top: 40px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Page de Contact</h1>
-        <p>Bienvenue sur la page de contact du projet de <strong>Massinissa BEY</strong>.</p>
-        <p>Pour toute question, n'hésitez pas à me contacter à l'adresse suivante :</p>
-        <p><strong>massinissa.bey@example.com</strong></p>
+        <h1>Formulaire de Contact</h1>
+        <form method="post" action="#">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
 
-        <a href="/">Retour à l'accueil</a>
-    </div>
-</body>
-</html>
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+
+            <button type="submit">Envoyer
