@@ -2,45 +2,61 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mon CV - Développeur Full-Stack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV – Développeur Full-Stack</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
+    <div class="cv-container">
+        <div class="cv-header">
             <img src="{{ url_for('static', filename='photo.jpg') }}" alt="Photo de profil">
-            <h1>Ton Prénom Ton Nom</h1>
+            <h1>Ton Nom Prénom</h1>
             <h2>Développeur Full-Stack</h2>
-            <p>Passionné par les technologies web, mobile et les architectures modernes...</p>
-        </header>
+            <p>Passionné par le développement web et mobile, j’aime créer des solutions modernes, performantes et élégantes.</p>
+        </div>
 
-        <section>
-            <h3>🧑‍💼 Expériences Professionnelles</h3>
-            <ul>
-                <li><strong>2024 – Présent :</strong> Développeur Flutter – Entreprise X</li>
-                <li><strong>2022 – 2023 :</strong> Développeur Web – Entreprise Y</li>
-            </ul>
-        </section>
+        <div class="cv-section">
+            <h3>💼 Expériences Professionnelles</h3>
+            <div class="cv-entry">
+                <h4>Développeur Flutter – Entreprise X</h4>
+                <span>2024 – Aujourd'hui</span>
+                <p>Développement d’applications mobiles cross-platform performantes avec Flutter et Dart.</p>
+            </div>
+            <div class="cv-entry">
+                <h4>Développeur Web – Entreprise Y</h4>
+                <span>2022 – 2023</span>
+                <p>Création de sites web dynamiques avec HTML, CSS, JavaScript et frameworks modernes.</p>
+            </div>
+        </div>
 
-        <section>
+        <div class="cv-section">
             <h3>🎓 Formations</h3>
-            <ul>
-                <li><strong>2023 – 2025 :</strong> MSc Expert en informatique, EPSI Paris</li>
-                <li><strong>2020 – 2023 :</strong> Licence informatique, Université d’Alger</li>
-            </ul>
-        </section>
+            <div class="cv-entry">
+                <h4>MSc Expert en Informatique – EPSI Paris</h4>
+                <span>2023 – 2025</span>
+            </div>
+            <div class="cv-entry">
+                <h4>Licence Informatique – Université d’Alger</h4>
+                <span>2020 – 2023</span>
+            </div>
+        </div>
 
-        <section>
+        <div class="cv-section">
             <h3>🛠️ Compétences</h3>
-            <ul class="skills">
-                <li>Flutter</li>
-                <li>Dart</li>
-                <li>HTML / CSS / JS</li>
-                <li>Python</li>
-                <li>Travail en équipe</li>
-                <li>Résolution de problèmes</li>
-            </ul>
-        </section>
+            <div class="skills">
+                <span>Flutter</span>
+                <span>Dart</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Python</span>
+                <span>SQL</span>
+                <span>Git / GitHub</span>
+                <span>Travail en équipe</span>
+                <span>Autonomie</span>
+            </div>
+        </div>
     </div>
 </body>
 </html>
