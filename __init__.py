@@ -52,5 +52,9 @@ def valeur_maximale(nombres):
     except ValueError:
         return "<h2>Erreur : Veuillez entrer uniquement des nombres entiers dans l’URL.</h2>"
 
+@app.route('/cv')
+def cv():
+    return render_template("cv.html")
+
 if __name__ == "__main__":
   app.run(debug=True)   #commit222
