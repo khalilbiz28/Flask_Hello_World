@@ -1,6 +1,6 @@
 name: Docker + ngrok Preview
 on:
-  push:
+  push:   #sqqf
     branches: [ main, master ]
 
 jobs:
