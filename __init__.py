@@ -15,6 +15,15 @@ def exercices():
 @app.route("/contact/")
 def MaPremiereAPI():
     return render_template("contact.html")
-                                                                                                               
+
+@app.route('/calcul_carre/<int:val_user>')
+def carre(val_user):
+    return f"<h2>Le carré de votre valeur est : {val_user * val_user}</h2>"
+
+@app.route('/somme/<int:val1>/<int:val2>')
+def somme(val1, val2):
+    resultat = val1 + val2
+    return f"<h2>La somme de {val1} et {val2} est : {resultat}</h2>"
+
 if __name__ == "__main__":
   app.run(debug=True)   #commit222
