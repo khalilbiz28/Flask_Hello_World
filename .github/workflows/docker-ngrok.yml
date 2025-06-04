@@ -1,0 +1,38 @@
+name: Docker Flask + ngrok Preview
+
+on: [push]
+
+jobs:
+  flask-ngrok:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cloner le dépôt
+        uses: actions/checkout@v3
+
+      - name: Installer Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Construire l'image Docker
+        run: docker build -t flask-ngrok .
+
+      - name: Lancer l'app Flask en conteneur
+        run: docker run -d -p 5000:5000 --name flask-ngrok flask-ngrok
+
+      - name: Installer ngrok
+        run: |
+          curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
+          echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
+          sudo apt update && sudo apt install -y ngrok
+
+      - name: Lancer ngrok sur le port 5000
+        run: |
+          ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
+          ngrok http 5000 > ngrok.log &
+          sleep 10
+          curl http://localhost:4040/api/tunnels > tunnels.json
+          echo "🚀 Accès public temporaire à ton app :"
+          cat tunnels.json | jq -r '.tunnels[0].public_url'
+
+      - name: Attente de 120 secondes
+        run: sleep 120
