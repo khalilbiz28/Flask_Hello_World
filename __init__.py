@@ -29,6 +29,16 @@ def somme(val1, val2):
         parite = "impair"
     return f"<h2>La somme de {val1} et {val2} est : {resultat}</h2><p>Ce nombre est {parite}.</p>"
 
+@app.route('/somme_multiple/', defaults={'nombres': ''})
+@app.route('/somme_multiple/<path:nombres>')
+def somme_multiple(nombres):
+    try:
+        liste = [int(n) for n in nombres.split('/') if n.strip() != '']
+        resultat = sum(liste)
+        return f"<h2>Les valeurs : {liste}</h2><p>La somme de ces valeurs est : {resultat}</p>"
+    except ValueError:
+        return "<h2>Erreur : Veuillez entrer uniquement des nombres entiers dans l’URL.</h2>"
+
 
 if __name__ == "__main__":
   app.run(debug=True)   #commit222
