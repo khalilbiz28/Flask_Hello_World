@@ -1,92 +1,130 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Contact - Massinissa BEY</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #74ebd5, #ACB6E5);
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <title>Contact - Massinissa BEY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #c2e9fb, #a1c4fd);
+    }
 
-        .container {
-            max-width: 600px;
-            margin: 60px auto;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
 
-        h1 {
-            text-align: center;
-            color: #333;
-        }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
 
-        form {
-            display: flex;
-            flex-direction: column;
-        }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
 
-        label {
-            margin-top: 15px;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #444;
-        }
+    label {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #444;
+    }
 
-        input, textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-        }
+    input,
+    textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
 
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
 
-        button {
-            margin-top: 25px;
-            padding: 12px;
-            background-color: #007BFF;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+    button {
+      margin-top: 25px;
+      padding: 14px;
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
 
-        button:hover {
-            background-color: #0056b3;
-        }
+    button:hover {
+      background-color: #0056b3;
+    }
 
-        .signature {
-            margin-top: 40px;
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-        }
-    </style>
+    .signature {
+      margin-top: 40px;
+      text-align: center;
+      color: #555;
+    }
+
+    .social-icons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: #333;
+      text-decoration: none;
+      font-size: 24px;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #007bff;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Formulaire de Contact</h1>
-        <form method="post" action="#">
-            <label for="prenom">Prénom</label>
-            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+  <div class="container">
+    <h1>Contactez-moi</h1>
+    <form method="post" action="#">
+      <label for="prenom">Prénom</label>
+      <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
 
-            <label for="nom">Nom</label>
-            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Votre adresse email" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Votre adresse email" required />
 
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
 
-            <button type="submit">Envoyer
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <div class="social-icons">
+      <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+
+    <div class="signature">
+      &copy; 2025 - Développé par <strong>Massinissa BEY</strong>
+    </div>
+  </div>
+</body>
+</html>
